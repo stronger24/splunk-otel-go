@@ -19,7 +19,7 @@ package splunkgorm // import "github.com/signalfx/splunk-otel-go/instrumentation
 import (
 	"fmt"
 
-	"github.com/signalfx/splunk-otel-go/instrumentation/database/sql/splunksql"
+	"github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"

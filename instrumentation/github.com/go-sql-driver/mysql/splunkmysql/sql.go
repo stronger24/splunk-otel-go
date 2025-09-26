@@ -46,7 +46,7 @@ import (
 	// Make sure to import this so the instrumented driver is registered.
 	"github.com/go-sql-driver/mysql"
 
-	"github.com/signalfx/splunk-otel-go/instrumentation/database/sql/splunksql"
+	"github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql"
 )
 
 func init() { //nolint:gochecknoinits // register db driver

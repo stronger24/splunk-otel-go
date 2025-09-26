@@ -19,7 +19,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/signalfx/splunk-otel-go/instrumentation/github.com/jinzhu/gorm/splunkgorm"
+	"github.com/stronger24/splunk-otel-go/instrumentation/github.com/jinzhu/gorm/splunkgorm"
 )
 
 func ExampleOpen() {

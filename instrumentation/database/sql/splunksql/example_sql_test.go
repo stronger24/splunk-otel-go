@@ -18,7 +18,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/signalfx/splunk-otel-go/instrumentation/database/sql/splunksql"
+	"github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql"
 )
 
 func ExampleRegister() {
