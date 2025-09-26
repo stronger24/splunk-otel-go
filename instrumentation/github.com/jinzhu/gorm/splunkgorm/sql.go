@@ -17,9 +17,15 @@
 package splunkgorm // import "github.com/signalfx/splunk-otel-go/instrumentation/github.com/jinzhu/gorm/splunkgorm"
 
 import (
-	"github.com/jinzhu/gorm"
+	"fmt"
 
 	"github.com/signalfx/splunk-otel-go/instrumentation/database/sql/splunksql"
+
+	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
+	"gorm.io/driver/sqlite"
+	"gorm.io/driver/sqlserver"
+	"gorm.io/gorm"
 )
 
 // openFunc allows overrides for testing.
@@ -29,9 +35,39 @@ var openFunc = splunksql.Open
 // driver name and a driver-specific data source name. The driver must already
 // be registered by the driver package.
 func Open(driverName, dataSourceName string, opts ...splunksql.Option) (*gorm.DB, error) {
-	db, err := openFunc(driverName, dataSourceName, opts...)
+	// 获取被追踪的 SQL DB 连接
+	sqlDB, err := openFunc(driverName, dataSourceName, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return gorm.Open(driverName, db)
+
+	// 根据驱动类型选择对应的 GORM V2 方言
+	var dialector gorm.Dialector
+	switch driverName {
+	case "mysql":
+		dialector = mysql.New(mysql.Config{
+			Conn: sqlDB,
+		})
+	case "postgres":
+		dialector = postgres.New(postgres.Config{
+			Conn: sqlDB,
+		})
+	case "sqlite3":
+		dialector = sqlite.New(sqlite.Config{
+			Conn: sqlDB,
+		})
+	case "sqlserver":
+		dialector = sqlserver.New(sqlserver.Config{
+			Conn: sqlDB,
+		})
+	default:
+		// 对于不支持的驱动，返回错误或使用通用方法
+		return nil, fmt.Errorf("unsupported driver: %s", driverName)
+	}
+
+	// 使用现有的 SQL DB 连接创建 GORM V2 实例
+	return gorm.Open(dialector, &gorm.Config{
+		// 可以根据需要添加其他 GORM 配置
+		ConnPool: sqlDB,
+	})
 }
