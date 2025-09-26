@@ -22,7 +22,7 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
 	github.com/microsoft/go-mssqldb v1.8.2 // indirect
-	github.com/stronger24/splunk-otel-go/instrumentation/internal v0.0.0-20250926043046-ca8d536f4d99 // indirect
+	github.com/stronger24/splunk-otel-go/instrumentation/internal v1.1.0 // indirect
 	golang.org/x/crypto v0.31.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
@@ -46,7 +46,7 @@ require (
 )
 
 replace (
-	github.com/signalfx/splunk-otel-go/instrumentation/internal => github.com/stronger24/splunk-otel-go/instrumentation/internal v0.0.0-20250926043046-ca8d536f4d99
+	github.com/signalfx/splunk-otel-go/instrumentation/internal => github.com/stronger24/splunk-otel-go/instrumentation/internal v1.1.0
 	github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql => ../../../../database/sql/splunksql
 	github.com/stronger24/splunk-otel-go/instrumentation/internal => ../../../../internal
 )
