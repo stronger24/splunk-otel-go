@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/stretchr/testify v1.11.1
-	github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql v0.0.0-00010101000000-000000000000
+	github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql v0.0.0-20250926043046-ca8d536f4d99
 	gorm.io/gorm v1.30.0
 )
 
@@ -22,7 +22,7 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
 	github.com/microsoft/go-mssqldb v1.8.2 // indirect
-	github.com/stronger24/splunk-otel-go/instrumentation/internal v0.0.0-00010101000000-000000000000 // indirect
+	github.com/stronger24/splunk-otel-go/instrumentation/internal v0.0.0-20250926043046-ca8d536f4d99
 	golang.org/x/crypto v0.31.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
@@ -48,4 +48,5 @@ require (
 replace (
 	github.com/stronger24/splunk-otel-go/instrumentation/database/sql/splunksql => ../../../../database/sql/splunksql
 	github.com/stronger24/splunk-otel-go/instrumentation/internal => ../../../../internal
+	github.com/signalfx/splunk-otel-go/instrumentation/internal => github.com/stronger24/splunk-otel-go/instrumentation/internal v0.0.0-20250926043046-ca8d536f4d99
 )
